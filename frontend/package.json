@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Demo Front End application with Node.js and Express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint --ignore-path .gitignore .",
+    "test": "mocha \"tests/**/*.js\" --recursive"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^2.0.0",
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "express": "^4.17.1",
+    "mocha": "^8.3.0",
+    "node-fetch": "^2.6.1",
+    "pug": "^3.0.0",
+    "supertest": "^6.1.3"
+  }
+}
