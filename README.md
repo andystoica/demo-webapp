@@ -1,4 +1,4 @@
-# Demo Microservices for simple K8s applications
+# Simple Node.js microservices for K8s applications
 
 This repository contains two microservices written in Node.js using the Express framework. The `frontend` application displays hostname and current datetime information on the home page, together with a message received from the `backend` service. If communication between the two service can not be established, an error message is displayed instead.
 
