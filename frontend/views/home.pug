@@ -6,5 +6,9 @@ html
     div
       h1= hostname
       sub= dateTime
-      p= message
+      p
+        if remoteMessage.error
+          span.error= remoteMessage.message
+        else
+          span.message= remoteMessage.message
     

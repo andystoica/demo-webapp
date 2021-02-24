@@ -7,18 +7,24 @@ const backEndHost = process.env.BACKEND_HOST || 'localhost';
 const backEndPort = process.env.BACKEND_PORT || 8081;
 const endPoint = '/message';
 
-const getRemoteMessage = async () => {
+const fetchMessage = async () => {
   try {
     const response = await fetch(`http://${backEndHost}:${backEndPort}${endPoint}`);
 
     if (response.ok) {
       const data = await response.json();
-      return data.message;
+      return data;
     }
 
-    return 'ERROR: The API server did not return correct data.';
+    return {
+      error: true,
+      message: 'ERROR: The API server did not return correct data.',
+    };
   } catch (err) {
-    return 'ERROR: Could not retrieve data from the back end API.';
+    return {
+      error: true,
+      message: 'ERROR: Could not retrieve data from the back end API.',
+    };
   }
 };
 
@@ -30,12 +36,12 @@ app.use(express.static('public'));
 
 // Handle home page response
 app.get('/', async (req, res) => {
-  const message = await getRemoteMessage();
+  const remoteMessage = await fetchMessage();
 
   const data = {
     dateTime: new Date(),
     hostname: os.hostname,
-    message,
+    remoteMessage,
   };
 
   res.status(200).render('home', data);
