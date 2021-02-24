@@ -20,9 +20,9 @@ npm install
 
 Once all dependencies are successfully installed, the following commands are available for each service:
 
-`npm start` start the service and reports the listening port number
-`npm run lint` runs static code analysis with eslint
-`npm run test` performs integration tests for all exposed endpoints
+- `npm start` start the service and reports the listening port number
+- `npm run lint` runs static code analysis with eslint
+- `npm run test` performs integration tests for all exposed endpoints
 
 For **production environments**, testing and linting modules should be omitted by using the `--production` flag. This will minimize the attack surface and reduce the overall image size.
 
