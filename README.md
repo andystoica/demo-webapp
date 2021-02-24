@@ -8,7 +8,7 @@ The `backend` service is a very simple REST API service, serving a randomised me
 
 ## Installation, startup and tests
 
-After changing into the corresponding service directory, node dependencies need to be installed for each service:
+For **development and testing environments**, node.js dependencies need to be installed for each service:
 
 ```bash
 cd frontend
@@ -23,6 +23,16 @@ Once all dependencies are successfully installed, the following commands are ava
 `npm start` start the service and reports the listening port number
 `npm run lint` runs static code analysis with eslint
 `npm run test` performs integration tests for all exposed endpoints
+
+For **production environments**, testing and linting modules should be omitted by using the `--production` flag. This will minimize the attack surface and reduce the overall image size.
+
+```bash
+cd frontend
+npm install --production
+
+cd ../backend
+npm install --production
+```
 
 ---
 
