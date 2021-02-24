@@ -5,12 +5,12 @@ const fetch = require('node-fetch');
 const app = express();
 const backEndHost = process.env.BACKEND_HOST || 'localhost';
 const backEndPort = process.env.BACKEND_PORT || 8081;
-const endPoint = '/message';
+const endPoint = `http://${backEndHost}:${backEndPort}/message`;
 
+// Obtain a message from the backend server
 const fetchMessage = async () => {
   try {
-    const response = await fetch(`http://${backEndHost}:${backEndPort}${endPoint}`);
-
+    const response = await fetch(endPoint);
     if (response.ok) {
       const data = await response.json();
       return data;
